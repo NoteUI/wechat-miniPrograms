@@ -11,7 +11,7 @@
 - utils — 存放utils文件，可require引入
 
 ### 项目截图:
-<img src="https://github.com/NoteUI/wechat-miniPrograms/blob/master/screen/index.png" width="480px" style="display:inline;">   
-<img src="https://github.com/NoteUI/wechat-miniPrograms/blob/master/screen/user.png" width="480px" style="display:inline;">  
+<img src="https://github.com/NoteUI/wechat-miniPrograms/blob/master/screen/index.png" width="320px" style="display:inline;">   
+<img src="https://github.com/NoteUI/wechat-miniPrograms/blob/master/screen/user.png" width="320px" style="display:inline;">  
 
 ### 开发环境：
