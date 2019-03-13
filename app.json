@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/searchPage/searchPage",
+    "pages/cart-back/cart-back",
+    "pages/cart/cart",
+    "pages/productDetail/productDetail",
+    "pages/user/user",
+    "pages/myOrderList/myOrderList",
+    "pages/myCollection/myCollection",
+    "pages/manageAddress/manageAddress",
+    "pages/orderDetail/orderDetail",
+    "pages/category/category",
+    "pages/coupons/coupons"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "tiger",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f9f9f9"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#ff0",
+    "backgroundColor": "#000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tab/home.png",
+        "selectedIconPath": "/images/tab/home_active.png"
+      },
+      
+      {
+        "pagePath": "pages/coupons/coupons",
+        "text": "附近",
+        "iconPath": "/images/tab/local.png",
+        "selectedIconPath": "/images/tab/local_active.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "/images/tab/user.png",
+        "selectedIconPath": "/images/tab/user_active.png"
+      }
+    ]
+  }
+}

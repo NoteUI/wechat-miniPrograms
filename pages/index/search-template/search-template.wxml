@@ -1,0 +1,18 @@
+<template name="search-template">
+    <view class="search-bar flex-row space-around">
+     <!-- <text class="cateIcon fas fa-bars" catchtap="navigateToCategory"></text>  -->
+         <!-- <image src="/images/categoryIcon.png" class="cateIcon" catchtap="navigateToCategory"></image>  -->
+        <view class="search-box">
+            <icon type="search" size="18" color="#999" class="search-icon"/>
+            <input type="text" disabled="{{inputs.disabled}}" 
+            placeholder="{{inputs.searchKeyWords}}"
+             focus="{{inputs.isFocus}}" 
+            data-placeholder="{{inputs.searchKeyWords}}"
+            value="{{inputs.value}}"
+            bindinput="onInputTxt"
+            class="input-text"
+            bindconfirm="onSearching"
+            bindtap="onSearchInputTap"/>
+        </view>
+    </view>
+</template>

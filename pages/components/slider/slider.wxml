@@ -1,0 +1,18 @@
+<view class="wrap"> 
+    <view class="recommend-lists"  bindtouchstart="moveRecommendListStart"  catchtouchend="moveRecommendListEnd" style="transform:translate3d({{curRecommendIndex*-100}}%,0,0)">
+        <view class="recommend-list-wrap clearfixed" wx:for="{{sliderData}}" wx:key="this">
+          <view class="recommend-list-item" wx:for="{{item}}" wx:key="this">
+            <image src="{{item.pic_url}}" class="pic"></image>
+            <view class="name ellipseTwoLine">{{item.name}}</view>
+            <view class="price">
+              ￥<text class="price-num">{{item.price}}</text>.00
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="recommend-lists-dot-wrap">
+        <block wx:for="{{sliderData}}" wx:key="this">
+          <view class="recommend-lists-dot {{curRecommendIndex==index?'curDot':''}}"></view>
+        </block>
+      </view>
+</view>

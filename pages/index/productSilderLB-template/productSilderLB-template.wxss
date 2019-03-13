@@ -1,0 +1,32 @@
+/* 产品左右滑动展示，居左放大 */
+.productSilderLB{
+    position: relative;
+    padding: 0 0 20rpx;
+    background: #f8f8f8;
+}
+.productSilderLB .swiper-wrap{
+    height: 388rpx;
+    margin-top: 20rpx;
+    text-align: center;
+}
+.productSilderLB .swiper-item{
+    overflow:visible;
+}
+.pSilderLB-showIndex{
+    position: absolute;
+    bottom: 16rpx;
+    right: 20rpx;
+    text-align: right;
+    font-size: 12px;
+    color: #333;
+}
+.pSilderLB-cont{
+    width: 580rpx;
+    height: 388rpx;
+    transform: scale(0.82);
+    transition: transform .3s ease;
+}
+.curSliderLItem{
+    transform: scale(1);
+    transition: transform .3s ease;
+}

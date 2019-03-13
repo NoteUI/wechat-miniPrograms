@@ -1,0 +1,57 @@
+<block wx:if="{{!isLoading}}">
+    <view class="tab-wrap flex-row">
+        <view class="tab-item first-tab-item {{curIndex==0?'cur':''}}" bindtap="switchTab" data-index="0">
+            未完成订单
+        </view>
+        <view class="tab-item {{curIndex==1?'cur':''}}" bindtap="switchTab" data-index="1">
+            已完成订单
+        </view>
+        <view class="tab-bar" style="transform:translate3d({{left}}px,0,0)"></view>
+    </view>
+    <view class="orderList-wrap" wx:if="{{curIndex==0}}">
+        <block wx:if="{{preOrderListData.length>0}}">
+            <view class="orderList-item" wx:for="{{preOrderListData}}" wx:key="this">
+                <view class="order-number">订单编号：{{item.orderNumber}}</view>
+                <view class="order-info flex-row">
+                    <image class="order-img" src="{{item.pic_url}}"></image>
+                    <view class="order-txt">
+                        <view class="title ellipseTwoLine">{{item.title}}</view>
+                        <view class="marketPrice">￥{{item.marketPrice}}</view>
+                        <view class="num fl">X<text>{{item.num}}</text></view>
+                        <view class="flag">待付款</view>
+                    </view>
+                </view>
+                <view class="order-price-wrap flex-row">
+                    <view>
+                        实付：
+                        <text class="order-price">{{item.totalPrice}}</text>
+                    </view>
+                    <view class="toBuy-btn" catchtap="toBuy">付款</view>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="no-tip">暂时没有任何订单信息！</view>
+        </block>
+    </view>
+    <view class="orderList-wrap" wx:if="{{curIndex==1}}">
+        <view class="orderList-item" wx:for="{{okOrderListData}}" wx:key="this">
+            <view class="order-number">订单编号：{{item.orderNumber}}</view>
+            <view class="order-info flex-row">
+                <image class="order-img" src="{{item.pic_url}}"></image>
+                <view class="order-txt">
+                    <view class="title ellipseTwoLine">{{item.title}}</view>
+                    <view class="marketPrice">￥{{item.marketPrice}}</view>
+                    <view class="num fr">X<text>{{item.num}}</text></view>
+                </view>
+            </view>
+            <view class="order-price-wrap flex-row">
+                <view>
+                    实付：
+                    <text class="order-price">￥99.9</text>
+                </view>
+                <view class="ok-flag">已付款</view>
+            </view>
+        </view>
+    </view>
+</block>

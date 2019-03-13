@@ -1,0 +1,13 @@
+<template name="prListItemTypeOne">
+    <view catchtap="toProductDetail" class="prListItem-typeOne">
+    <image src="{{item.pic_url}}" class="pic"></image>
+    <view class="info">
+        <view class="title ellipseTwoLine">{{item.title}}</view>
+        <view>
+            <text class="marketPrice">￥{{item.marketPrice}}</text>
+            <text class="originPrice">￥{{item.originPrice}}</text>
+        </view>
+        <view class="typeCart"></view>
+    </view>
+</view>
+</template>

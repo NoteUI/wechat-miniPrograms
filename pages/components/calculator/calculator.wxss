@@ -1,0 +1,35 @@
+/* 计算器 */
+.calculator{
+    display: flex;
+    height: 30px;
+    line-height: 30px;
+    font-family: Helvetica,sans-serif;
+}
+.calculator-add,.calculator-reduce{
+    width: 30px;
+    height: 30px;
+    background:#eee;
+    text-align: center;
+    font-size: 22px;
+    color: #999;
+}
+.calculator-add{
+    border-radius: 4px 0 0 4px;
+}
+.calculator-reduce{
+    border-radius: 0 4px 4px 0;
+}
+.calculator-input{
+    width:45px;
+    height: 30px;
+    background: #f8f8f8;
+    text-align:center;
+    font-size: 14px;
+    font-weight: normal;
+    color: #333;
+}
+.calculator-input input{
+    height: 30px;
+    border: none;
+    outline:none
+}

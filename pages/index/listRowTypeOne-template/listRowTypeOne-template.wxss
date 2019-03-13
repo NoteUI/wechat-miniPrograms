@@ -1,0 +1,37 @@
+.listRowTypeOne-item{
+    padding: 0 20rpx 0 10rpx;
+    position: relative;
+    border-bottom: 1px solid #f8f8f8;
+    align-items: flex-start;
+}
+.listRowTypeOne-pic{
+    margin: 10rpx;
+    display: block;
+    width: 260rpx;
+    height: 260rpx;
+}
+.listRowTypeOne-info{
+    flex: 1;
+    margin-left: 10rpx;
+}
+.listRowTypeOne-title{
+    margin-top: 30rpx;
+    font-size: 15px;
+    color: #666;
+}
+.listRowTypeOne-price{
+    margin-top: 100rpx;
+}
+.listRowTypeOne-marketPrice{
+    font-size: 18px;
+    color: #faa03f;
+}
+.listRowTypeOne-originPrice{
+    margin-left: 10rpx;
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+}
+.typeOneCart{
+    background: #faa03f;
+}

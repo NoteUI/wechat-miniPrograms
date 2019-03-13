@@ -1,0 +1,30 @@
+<block wx:if="{{orderData.length>0}}">
+    <view class="address-info" catchtap="operateAddress">
+        <view class="user-info flex-row">
+            <view>收货人：{{addressInfo.name}}</view>
+            <view>{{addressInfo.tel}}</view>
+        </view>
+        <view class="address">
+            {{addressInfo.province+addressInfo.city+addressInfo.area+addressInfo.detailAddress}}
+        </view>
+    </view>
+    <view class="order-list-wrap">
+        <block wx:for="{{orderData}}" wx:key="this">
+            <view class="order-list-tem flex-row">
+                <image class="pic" src="{{item.pic_url}}"></image>
+                <view class="info">
+                    <view class="title ellipseTwoLine">{{item.title}}</view>
+                    <view class="price flex-row">
+                        <text class="marketPrice">￥{{item.marketPrice}}</text>
+                        <view class="">X<text class="num">{{item.num}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="order-bottom-menu flex-row">
+            <view class="total-price">付款合计:￥{{totalPrice}}</view>
+            <view class="toBuy-btn" catchtap="onBuyTap">去付款</view>
+        </view>
+    </view>
+</block>

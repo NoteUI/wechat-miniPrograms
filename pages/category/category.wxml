@@ -1,0 +1,56 @@
+<!-- pages/category/category.wxml -->
+<view class="container flex-row" style="height:{{winHeight}}px">
+    <scroll-view scroll-y="true" class="left-category-nav" scroll-top="{{topNavScrollTop}}" scroll-with-animation="true">
+        <block wx:for="{{categoryData.categoryConts}}" wx:key="this">
+            <view class="left-category-item {{index==curLeftNavIndex?'cur':''}}" data-index="{{index}}" catchtap="onLeftNavItemTap">
+                {{item.categoryTitle}}
+            </view>
+        </block>
+    </scroll-view>
+    <swiper class="category-cont-wrap" 
+    vertical="true"
+    current="{{curLeftNavIndex}}"
+    duration="{{duration}}">
+        <block wx:for="{{categoryData.categoryConts}}" wx:key="this">
+            <swiper-item class="category-cont-item">
+                <scroll-view scroll-y scroll-top="{{initScrollTopNumber}}" 
+                scroll-with-animation="true" 
+                class="category-cont-sclView"
+                >
+                    <view class="category-cont-cBox">
+                        <view class="category-title">{{item.categoryTitle}}</view>
+                        <block wx:if="{{item.bigImage}}">
+                            <image src="{{item.bigImage}}" class="big-image"></image>
+                        </block>
+                        <view class="category-cont-list clearfixed"> 
+                            <block wx:for="{{item.lists}}" wx:for-item="list" wx:key="this">
+                                <view class="category-cont-list-item" catchtap="onCategoryContItemTap" data-id="{{list.id}}" data-txt="{{list.title}}">
+                                    <image src="{{list.pic_url}}" class="list-image"></image>
+                                    <text class="list-info">{{list.title}}</text>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+        </block>
+    </swiper>
+    <!-- <scroll-view class="category-cont" scroll-y="false" scroll-into-view="{{curCategoryCont}}" scroll-with-animation="true">
+        <block wx:for="{{categoryData.categoryConts}}" wx:key="this">
+                <view class="category-cont-item" id="cont-item_{{index}}">
+                    <view class="category-title">{{item.categoryTitle}}</view>
+                    <block wx:if="{{item.bigImage}}">
+                        <image src="{{item.bigImage}}" class="big-image"></image>
+                    </block>
+                    <view class="category-cont-list clearfixed">
+                        <block wx:for="{{item.lists}}" wx:for-item="list" wx:key="this">
+                            <view class="category-cont-list-item" data-id="{{list.id}}">
+                                <image src="{{list.pic_url}}" class="list-image"></image>
+                                <text>{{list.title}}</text>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+        </block>
+    </scroll-view> -->
+</view>

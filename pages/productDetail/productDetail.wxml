@@ -1,0 +1,146 @@
+<block wx:if="{{productInfo.productPics}}">
+  <view class="tab-wrap flex-row">
+    <view class="tab-item {{curTabIndex==0?'cur iconfont icon-flag':''}}" data-index="0" catchtap="switchTab">
+      商品
+    </view>
+    <view class="tab-item {{curTabIndex==1?'cur iconfont icon-flag':''}}" data-index="1" catchtap="switchTab">
+      评价
+    </view>
+    <!-- <view class="tab-item {{curTabIndex==3?'cur iconfont icon-flag':''}}" data-index="3" catchtap="switchTab">
+      详情
+    </view> -->
+    <view class="tab-item {{curTabIndex==2?'cur iconfont icon-flag':''}}" data-index="2" catchtap="switchTab">
+      推荐
+    </view>
+  </view>
+  <scroll-view scroll-y="true" class="page-wrap" scroll-top="{{scrollTop}}" bindscroll="pageScroll" scroll-with-animation="true" scroll-into-view="{{targetSection}}">
+    <view class="product-section section" id="section0">
+      <swiper class="product-pic-wrap" indicator-dots="true" data-picArr="{{productInfo.productPics[productId]}}" bindtap="viewBigImages" indicator-color="rgba(0,0,0,.3)" indicator-active-color="#e4393c" duration="300">
+        <swiper-item wx:for="{{productInfo.productPics[productId]}}" wx:key="this">
+          <image class="product-pic" src="{{item}}" data-index="{{index}}"></image>
+        </swiper-item>
+      </swiper>
+      <view class="product-info">
+        <view class="product-title-wrap">
+          <view class="product-title ellipseTwoLine">{{productInfo.title}}</view>
+          <view class="rate-wrap">
+            <view class="rate-num">99%</view>
+            <view class="rate-txt">好评率</view>
+          </view>
+        </view>
+        <view class="product-price">
+          <text class="product-marketPrice">￥{{productInfo.marketPrice[productId]}}</text>
+          <text class="product-originPrice">￥{{productInfo.originPrice}}</text>
+        </view>
+      </view>
+      <view class="addrr-wrap flex-row">
+        <view class="small-title">地址</view>
+        <view class="addr">
+         金汇路380号C1(汇丽舍韵动时代小底商)
+          <!-- <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
+            <view class="picker" mode="date">
+              {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}{{multiArray[2][multiIndex[2]]}} 
+            </view>
+          </picker>-->
+        </view>
+      </view>
+      <view class="type-wrap flex-row">
+        <view class="small-title">套餐</view>
+        <view class="type-list" bindtap="selectType">
+          <view class="type-list-item {{isCurTypeIndex==0?'curType':''}}" data-index="0">
+            生啤套餐
+          </view>
+          
+          <view class="type-list-item {{isCurTypeIndex==3?'curType':''}}" data-index="3">
+            2-4位鸡尾酒套餐！
+          </view>
+          
+        </view>
+        <view class="calculator-wrap flex-row">
+          <view class="small-title">数量</view>
+          <calculator class="calculator-cont" id="{{item.id}}" bind:operationNum="operationNum"></calculator>
+        </view>
+      </view>
+    </view>
+    <view class="comment-section section" id="section1">
+      <view class="title arrow">
+        <text>评价</text>
+        <text class="comment-rate">好评90%</text>
+        <view class="comment-num-wrap">
+          共
+          <text class="comment-num">7万+</text>
+          条
+        </view>
+      </view>
+      <view class="comment-flag clearfixed">
+        <view class="comment-flag-item">好评(70万+)</view>
+        <view class="comment-flag-item">中评(5800+)</view>
+        <view class="comment-flag-item">差评(5500+)</view>
+        <view class="comment-flag-item">有图(4.2万+)</view>
+        <view class="comment-flag-item blueBg">口感极佳(100)</view>
+      </view>
+      <view class="comment-list-wrap" wx:for="{{productInfo.commentList}}" wx:key="this">
+        <view class="comment-list-item clearfixed">
+          <view class="user">{{item.user}}</view>
+          <view class="star"></view>
+          <view class="time">{{item.time}}</view>
+        </view>
+        <view class="comment-info">{{item.info}}</view>
+        <view class="comment-img clearfixed" data-picArr="{{item.previewImgs}}" bindtap="viewBigImages">
+          <block wx:for="{{item.imgs}}" wx:key="this">
+            <image src="{{item}}" data-index="{{index}}"></image>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class="recommend-section section" id="section2">
+      <view class="title">猜你喜欢</view>
+      <slider class="recommend-slider" sliderData="{{productInfo.recommend}}"></slider>
+    </view>
+    <!-- <view class="detail-section section" id="section3">
+      <view class="detail-tab flex-row" bindtap="switchDetailTab">
+        <view class="detail-tab-item {{curDetailTabIndex==0?'curDetailTabItem':''}}" data-index="0">
+          商品介绍
+        </view>
+        <view class="detail-tab-item {{curDetailTabIndex==1?'curDetailTabItem':''}}" data-index="1">
+          规格参数
+        </view>
+        <view class="detail-tab-item {{curDetailTabIndex==2?'curDetailTabItem':''}}" data-index="2">
+          售后保障
+        </view>
+      </view>
+      <view class="detail-info-wrap" style="height:{{detailContsHeightArr[curDetailTabIndex]}}px">
+        <view class="detail-conts-wrap" style="transform:translate3d({{curDetailTabIndex*-100}}%,0,0)">
+          <view class="detail-cont">
+            <block wx:for="{{productInfo.detailData.introduce}}" wx:key="this">
+              <image src="{{item.pic_url}}" class="detail-pic detail-pic{{index}}" style="height:{{item.height}}rpx"></image>
+            </block>
+          </view>
+          <view class="detail-cont">规格参数</view>
+          <view class="detail-cont">售后保障</view>
+        </view>
+      </view>
+    </view> -->
+    <!-- 回到顶部按钮 -->
+    <image src="../../images/scrollTop_icon.png" class="scrollTop-icon" wx:if="{{isShowScrTopIcon}}" catchtap="onScrollTopTap"></image>
+  </scroll-view>
+  <view class="bottom-menu flex-row">
+    <view class="collection-wrap {{isCollected?'collected':''}}" catchtap="onCollection">
+      <view class="icon-collect-wrap">
+        <view class="iconfont icon-collect"></view>
+      </view>
+      <view>收藏</view>
+    </view>
+    <view class="cart-wrap" catchtap="toCartPage">
+      <view class="iconfont icon-cart">
+        <view class="cart-num" wx:if="{{addToCartNum!=0}}">{{addToCartNum}}</view>
+        <view class="add-animation {{isShowAnimation?'addAnimation':''}}"  animation="{{addAnimation}}" catchanimationend="onAddAnimationEnd" >
+          +{{productNum}}
+        </view>
+      </view>
+      <view>购物车</view>
+    </view>
+    <view class="add-cart" catchtap="addNumToCart">加入购物车</view>
+    <view class="buy-btn" catchtap="goToBuy">直接购买</view>
+  </view>
+</block>

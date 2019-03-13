@@ -1,0 +1,9 @@
+.bannerSwiper{
+    height: 300rpx;
+    background: #f8f8f8;
+}
+.bannerSwiper image{
+    display: inline-block;
+    width: 100%;
+    height: 300rpx;
+}

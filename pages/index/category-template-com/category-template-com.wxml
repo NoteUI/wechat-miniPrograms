@@ -1,0 +1,44 @@
+<import src="../swiper-banner-template/swiper-banner-template.wxml"></import>
+<import src="../search-template/search-template.wxml"></import>
+<import src="../listRowTypeOne-template/listRowTypeOne-template.wxml"></import>
+<import src="../productSilderLB-template/productSilderLB-template.wxml"></import>
+<import src="../prListItemTypeOne-template/prListItemTypeOne-template.wxml"></import>
+<template name="category-template-com">
+    <view class="searchWrap">
+        <template is="search-template" data="{{inputs:cpg.inputs}}"></template>
+    </view>
+    <!-- 加载bannner模版 -->
+    <view class="bannerWrap">
+        <template is="swiper-banner-template" data="{{setBSwiper:cpg.bannerData.setBannerSwiper,bannerData:cpg.bannerData.data}}"></template>
+    </view>
+    <block wx:for="{{cpg.sections}}" wx:key="this">
+        <!-- 左图右文 -->
+        <block wx:if="{{item.view_class=='listRowTypeOne'||item.view_class=='listRowTypeTwo'}}">
+            <view class="{{item.view_class}}">
+                <block wx:if="{{item.body.title_pic}}">
+                    <image src="{{item.body.title_pic}}" class="title-pic title-pic2"></image>
+                </block>
+                <block wx:for="{{item.body.lists}}" wx:key="this">
+                    <template is="listRowTypeOne-template" data="{{item:item}}"></template>
+                </block>
+            </view>
+        </block>
+        <!-- 产品左右滑动展示，居中放大 -->
+        <block wx:if="{{item.view_class=='productSilderLB'}}">
+            <template is="productSilderLB" data="{{title_pic:item.body.title_pic,lists:item.body.lists,curSliderLIndex:curSliderLIndex}}"></template>
+        </block>
+        <!-- 单独广告大图 -->
+        <block wx:if="{{item.view_class=='promo-smallBanner'}}">
+            <image src="{{item.body.pic_url}}" class="{{item.view_class}}"></image>
+        </block>
+    </block>
+    <!-- 更多好货 -->
+    <view>
+        <image src="{{cpg.moreProducts.title_pic}}" class="title-pic"></image>
+        <view class="recommendFY-list clearfixed">
+            <block wx:for="{{cpg.moreProducts.lists}}" wx:key="this">
+                <template is="prListItemTypeOne" data="{{item:item}}"></template>
+            </block>
+        </view>
+    </view>
+</template>

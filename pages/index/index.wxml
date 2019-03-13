@@ -1,0 +1,92 @@
+ <import src="category-template-index/category-template-index.wxml"></import> 
+<!-- <import src="category-template-com/category-template-com.wxml"></import> -->
+<view class="container">
+  <!-- 顶部导航菜单开始 -->
+   <scroll-view class="top-nav-wrap" scroll-x="true" scroll-left="{{topNavScrollLeft}}" scroll-with-animation="true">
+    <block wx:for="{{topNavs}}" wx:key="this">
+      <view data-id="{{item.id}}" class="top-nav-item topNav{{index}} {{curTopNavId==item.id?'active':''}}" catchtap="onTopNavItemTap">
+        {{item.navTxt}}
+      </view>
+    </block>
+    <view class="activeTopNavItemBar" animation="{{activeBarAnimation}}"></view>
+  </scroll-view> 
+  <!-- 顶部导航菜单结束 -->
+  <!-- 分类页面开始 -->
+  <view class="categoryPageWrap">
+    <swiper class="categoryPage" current="{{currentCategoryPage}}" duration="300" bindchange="changeActiveNavItem">
+      <swiper-item class="categoryPageItem">
+        <scroll-view class="cPageItemCont {{categoryPagesData[0]?'fadeIn':''}}" style="height:{{categoryPagesData[0]?'100%':'auto'}}" scroll-top="{{scrollTop}}" bindscroll="pageScroll" scroll-y="true" bindscrolltolower="loadMore">
+          <block wx:if="{{categoryPagesData[0]}}">
+            <template is="category-template-index" data="{{cpg:categoryPagesData[0],isCurPromoItemIndex:isCurPromoItemIndex,promoListScrollLeft:promoListScrollLeft,curSliderCIndex:curSliderCIndex,oldSliderCIndex:oldSliderCIndex,curSliderLIndex:curSliderLIndexArr[0]}}"></template>
+            <view class="loading-more-tip" wx:if="{{isShowLoadingMore}}">
+              {{loadingMoreTipTxtArr[0]}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view class="cPageItemCont {{categoryPagesData[1]?'fadeIn':''}}" style="height:{{categoryPagesData[1]?'100%':'auto'}}" scroll-top="{{scrollTop}}" bindscroll="pageScroll" scroll-y="true" bindscrolltolower="loadMore">
+          <block wx:if="{{categoryPagesData[1]}}">
+            <template is="category-template-com" data="{{cpg:categoryPagesData[1],curSliderLIndex:curSliderLIndexArr[1]}}"></template>
+            <view class="loading-more-tip" wx:if="{{isShowLoadingMore}}">
+              {{loadingMoreTipTxtArr[1]}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view class="cPageItemCont {{categoryPagesData[2]?'fadeIn':''}}" style="height:{{categoryPagesData[2]?'100%':'auto'}}" scroll-top="{{scrollTop}}" bindscroll="pageScroll" scroll-y="true" bindscrolltolower="loadMore">
+          <block wx:if="{{categoryPagesData[2]}}">
+            <template is="category-template-com" data="{{cpg:categoryPagesData[2],curSliderLIndex:curSliderLIndexArr[2]}}"></template>
+            <view class="loading-more-tip" wx:if="{{isShowLoadingMore}}">
+              {{loadingMoreTipTxtArr[2]}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view class="cPageItemCont {{categoryPagesData[3]?'fadeIn':''}}" style="height:{{categoryPagesData[3]?'100%':'auto'}}"  scroll-top="{{scrollTop}}" bindscroll="pageScroll" scroll-y="true" bindscrolltolower="loadMore">
+          <block wx:if="{{categoryPagesData[3]}}">
+            <template is="category-template-com" data="{{cpg:categoryPagesData[3],curSliderLIndex:curSliderLIndexArr[3]}}"></template>
+            <view class="loading-more-tip" wx:if="{{isShowLoadingMore}}">
+              {{loadingMoreTipTxtArr[3]}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view class="cPageItemCont {{categoryPagesData[4]?'fadeIn':''}}" style="height:{{categoryPagesData[4]?'100%':'auto'}}" scroll-top="{{scrollTop}}" bindscroll="pageScroll" scroll-y="true" bindscrolltolower="loadMore">
+          <block wx:if="{{categoryPagesData[4]}}">
+            <template is="category-template-com" data="{{cpg:categoryPagesData[4],curSliderLIndex:curSliderLIndexArr[4]}}"></template>
+            <view class="loading-more-tip" wx:if="{{isShowLoadingMore}}">
+              {{loadingMoreTipTxtArr[4]}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view class="cPageItemCont {{categoryPagesData[5]?'fadeIn':''}}" style="height:{{categoryPagesData[5]?'100%':'auto'}}" scroll-top="{{scrollTop}}" bindscroll="pageScroll" scroll-y="true" bindscrolltolower="loadMore">
+          <block wx:if="{{categoryPagesData[5]}}">
+            <template is="category-template-com" data="{{cpg:categoryPagesData[5],curSliderLIndex:curSliderLIndexArr[5]}}"></template>
+            <view class="loading-more-tip" wx:if="{{isShowLoadingMore}}">
+              {{loadingMoreTipTxtArr[5]}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view class="cPageItemCont {{categoryPagesData[6]?'fadeIn':''}}" style="height:{{categoryPagesData[6]?'100%':'auto'}}" scroll-top="{{scrollTop}}" bindscroll="pageScroll" scroll-y="true" bindscrolltolower="loadMore">
+          <block wx:if="{{categoryPagesData[6]}}">
+            <template is="category-template-com" data="{{cpg:categoryPagesData[6],curSliderLIndex:curSliderLIndexArr[6]}}"></template>
+            <view class="loading-more-tip" wx:if="{{isShowLoadingMore}}">
+              {{loadingMoreTipTxtArr[6]}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 分类页面结束 -->
+  <!-- 回到顶部按钮 -->
+  <image src="../../images/scrollTop_icon.png" class="scrollTop-icon" wx:if="{{isShowScrTopIcon}}" catchtap="onScrollTopTap"></image>
+</view>

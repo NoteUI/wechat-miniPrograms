@@ -1,0 +1,27 @@
+.search-bar{
+    justify-content: start;
+    height: 30px;
+}
+.cateIcon{
+    width: 42rpx;
+    height: 42rpx;
+    margin: 0 30rpx;color: greenyellow;
+}
+.search-box{
+    position: relative;
+    flex: 1;
+    height: 100%;
+    /* margin-right: 20rpx; */
+    padding: 0 50rpx 0 76rpx;
+    border-radius: 20px;
+    background: #F0F2F5;
+}
+.search-icon{
+    position: absolute;
+    top: 7px;
+    left: 22rpx;
+}
+.input-text{
+    height: 100%;
+    font-size: 14px;
+}

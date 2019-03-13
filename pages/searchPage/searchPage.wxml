@@ -1,0 +1,141 @@
+<view class="pageWrap">
+  <import src="../index/search-template/search-template.wxml"></import>
+  <view class="search-bar-wrap flex-row">
+    <template is="search-template" data="{{inputs:inputs}}"></template>
+    <view class="clearBtn flex-row" catchtap="clearInput">
+      <icon type="clear" size="18" wx:if="{{isShowClearBtn}}">
+      </icon>
+    </view>
+    <view class="cancelBtn" catchtap="backTo">取消</view>
+  </view>
+  <block wx:if="{{isSearching}}">
+    <block wx:if="{{latestSearchKeyWords.length!=0}}">
+      <view class="search-history" bindtap="onKeyWordsTap">
+        <view class="title">
+          最近搜索
+          <view class="garbage-pic" catchtap="clearAll"></view>
+        </view>
+        <block wx:for="{{latestSearchKeyWords}}" wx:key="this">
+          <view class="latest-search keywords" data-txt="{{item}}">
+            {{item}}
+            <icon type="clear" size="18" catchtap="delCurKeywords" data-keywords="{{item}}"></icon>
+          </view>
+        </block>
+      </view>
+    </block>
+    <view class="hot-search" bindtap="onKeyWordsTap">
+      <view class="title">热门搜索</view>
+      <block wx:for="{{hotKeyWords}}" wx:key="this">
+        <view class="keywords" data-txt="{{item}}">{{item}}</view>
+      </block>
+    </view>
+  </block>
+  <block wx:else>
+    <block wx:if="{{!isLoading}}">
+      <block wx:if="{{hasResults}}">
+        <!-- <view class="selectedTab flex-row {{isFixedTop?'fixedTop':''}}">
+                    <view class="selectedTab-item">
+                        <view class="selectedTab-item-txt triangle_icon {{selectedItem01Txt?'selected':''}} {{isShowItem01?'open':''}}" catchtap="showFold01">
+                            {{selectedItem01Txt}}
+                        </view>
+                    </view>
+                    <view class="selectedTab-item">
+                        <view class="selectedTab-item-txt">销量</view>
+                    </view>
+                    <view class="selectedTab-item">
+                        <view class="selectedTab-item-txt triangle_icon {{selectedItem03Txt!='服务'?'selected':''}} {{isShowItem02?'open':''}}" catchtap="showFold02">
+                            {{selectedItem03Txt}}
+                        </view>
+                    </view>
+                    <view class="selectedTab-item selectedTab-item-filter">
+                        <view class="selectedTab-item-txt">筛选</view>
+                        <image src="../../images/rank.png" class="rank-icon"></image>
+                    </view>
+                    <block wx:if="{{isShowItem01}}">
+                        <view class="selectedTab-item-fold" bindtap="selectedFoldItemType01">
+                            <view class="fold-item {{curSType01Index==0?'fold-item-selected':''}}" data-index="0" data-txt="综合">
+                                综合
+                            </view>
+                            <view class="fold-item {{curSType01Index==1?'fold-item-selected':''}}" data-index="1" data-txt="最新上架">
+                                最新上架
+                            </view>
+                            <view class="fold-item {{curSType01Index==2?'fold-item-selected':''}}" data-index="2" data-txt="价格最低">
+                                价格最低
+                            </view>
+                            <view class="fold-item {{curSType01Index==3?'fold-item-selected':''}}" data-index="3" data-txt="价格最高">
+                                价格最高
+                            </view>
+                            <view class="fold-item {{curSType01Index==4?'fold-item-selected':''}}" data-index="4" data-txt="评论最多">
+                                评论最多
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{isShowItem02}}">
+                        <view class="selectedTab-item-fold" bindtap="selectedFoldItemType02">
+                            <view class="fold-item {{tempCurSType02IndexArr[0]?'fold-item-selected':''}}" data-index="0" data-txt="有货优先">
+                                有货优先
+                            </view>
+                            <view class="fold-item {{tempCurSType02IndexArr[1]?'fold-item-selected':''}}" data-index="1" data-txt="优质物流">
+                                优质物流
+                            </view>
+                            <view class="fold-item {{tempCurSType02IndexArr[2]?'fold-item-selected':''}}" data-index="2" data-txt="货到付款">
+                                货到付款
+                            </view>
+                            <view class="fold-item {{tempCurSType02IndexArr[3]?'fold-item-selected':''}}" data-index="3" data-txt="促销商品">
+                                促销商品
+                            </view>
+                            <view class="fold-item {{tempCurSType02IndexArr[4]?'fold-item-selected':''}}" data-index="4" data-txt="PLUS专享价">
+                                PLUS专享价
+                            </view>
+                            <view class="flex-row">
+                                <view class="fold-btn reset-btn" catchtap="resetOptionsTap">
+                                    重置
+                                </view>
+                                <view class="fold-btn ok-btn" catchtap="onMultiselectOKBtnTap">
+                                    确认
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </view> -->
+        <view class="mask-bg" wx:if="{{isShowMask}}" catchtap="foldItems"></view>
+        <view class="search-results-wrap flex-col {{isFixedTop?'paddingTop':''}}">
+          <block wx:for="{{searchResultArr}}" wx:key="this">
+            <view data-id="{{item.id}}" class="media-list-item flex-row" catchtap="toProductDetail">
+              <image src="{{item.pic_url}}" class="list-item-img"></image>
+              <view class="list-item-info">
+                <view class="list-item-title">{{item.title}}</view>
+                <view class="price flex-row">
+                  <view>
+                    <text>￥</text>
+                    <text class="marketPrice">{{item.marketPrice}}</text>
+
+                  </view>
+                  <view>
+                    <text class="originPrice">￥{{item.originPrice}} </text>
+                  </view>
+                  <view>
+                    <text class="distance"> {{item.distance}}</text>
+                  </view>
+                </view>
+                <view class="other-info">
+                  <text>{{item.comment}}条评价</text>
+                  <text class="other-info-rate">好评率{{item.rate}}%</text>
+                </view>
+                <!-- <view class="cart-bg tc">
+                  <image src="../../images/cart.png" class="cart-icon"></image>
+                  <text class='text-invert'>购买</text>
+                </view> -->
+              </view>
+            </view>
+          </block>
+          <view class="loading-more-tip" wx:if="{{isShowLoadingMore}}">{{loadingMoreTipTxt}}</view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noResult-tip">没有任何搜索结果！</view>
+      </block>
+    </block>
+  </block>
+  <image src="../../images/scrollTop_icon.png" class="scrollTop-icon" wx:if="{{isShowScrTopIcon}}" catchtap="onScrollTopTap"></image>
+</view>

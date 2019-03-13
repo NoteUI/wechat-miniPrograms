@@ -1,0 +1,4 @@
+<import src="../cart/rProduct-list-template/rProduct-list-template.wxml"/>
+<block wx:for="{{productListData}}" wx:key="this">
+    <template is="rProduct-list-template" data="{{item:item}}"></template>
+</block>

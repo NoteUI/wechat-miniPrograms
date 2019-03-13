@@ -1,0 +1,107 @@
+page{
+    background: #f8f8f8;
+}
+/* tab选项卡 */
+.tab-wrap{
+    position: relative;
+    padding:30rpx 80rpx;
+    background: #fff;
+    border-bottom: 1px solid #f9f9f9;
+}
+.tab-item{
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+}
+.tab-bar{
+    position: absolute;
+    left: 0;
+    bottom: 1rpx;
+    width: 60px;
+    height:2px;
+    background: #6cb82c;
+    transition: all .3s ease;
+}
+.cur{
+    color: #6cb82c;
+}
+/* 订单列表 */
+.orderList-wrap{
+    margin-top: 30rpx;
+}
+.orderList-item{
+    background: #fff;
+    margin: 30rpx 0;
+    padding:0 30rpx;
+}
+.order-number{
+    padding:30rpx 0;
+    border-bottom:1px solid #eee;
+    font-size: 14px;
+    color: #333;
+}
+.order-info{
+   position:relative;
+   padding:0 0 20rpx;
+   box-size:border-box;
+   border-bottom:1px solid #eee;
+}
+.order-img{
+    width:70px;
+    height:70px;
+    display:block;
+    margin-right:10px;
+}
+.order-txt{
+    flex:1;
+}
+.title{
+    font-size:14px;
+    color:#333;
+    margin:20rpx 0 36rpx;
+}
+.num{
+    color:#333;
+    font-size:10px;
+}
+.num text{
+    font-size:15px;
+}
+.flag{
+    position:absolute;
+    right:0rpx;
+    bottom:20rpx;
+    color:#f02b2b;
+    font-size:14px;
+}
+.marketPrice{
+    float: left;
+    color:#333;
+    font-size:15px;
+    margin-right: 20rpx;
+}
+.order-price-wrap{
+    padding:20rpx 0;
+    justify-content:space-between;
+    font-size:14px;
+    color:#333;
+}
+
+.order-price{
+    color:#f02b2b;
+    font-size:14px;
+}
+.toBuy-btn{
+    background:#f02b2b;
+    color:#fff;
+    padding:5px 25px;
+}
+.ok-flag{
+    color:#f02b2b;
+}
+.no-tip{
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+}

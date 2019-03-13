@@ -1,0 +1,15 @@
+<template name="productSilderLB">
+    <view class="productSilderLB">
+        <image src="{{title_pic}}" class="title-pic"></image>
+        <swiper class="swiper-wrap" circular="true" interval="3000" duration="300" previous-margin="20rpx" next-margin="180rpx" bindchange="productSilderLBChange">
+            <block wx:for="{{lists}}" wx:key="this">
+                <swiper-item class="swiper-item">
+                    <image src="{{item.pic_url}}" class="pSilderLB-cont {{curSliderLIndex-1==index?'curSliderLItem':''}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="pSilderLB-showIndex">
+            <text>{{curSliderLIndex}}</text>/<text>{{lists.length}}</text>
+        </view>
+    </view>
+</template>

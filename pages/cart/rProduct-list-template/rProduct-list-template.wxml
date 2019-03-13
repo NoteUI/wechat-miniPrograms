@@ -1,0 +1,13 @@
+<template name="rProduct-list-template">
+<view class="rProduct-list-item">
+                <image src="{{item.pic_url}}" class="pic"></image>
+                <view class="info">
+                    <view class="price">
+                        <text class="marketPrice">￥{{item.marketPrice}}</text>
+                        <text class="originPrice">￥{{item.originPrice}}</text>
+                        <text class="discount">{{item.discount}}折</text>
+                    </view>
+                    <view class="title ellipseTwoLine">{{item.title}}</view>
+                </view>
+            </view>
+</template>

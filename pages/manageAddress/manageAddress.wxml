@@ -1,0 +1,29 @@
+<block wx:if="{{name}}">
+<view class="info-wrap">
+    <view class="info-item name">
+        <input type="text" placeholder="姓名" value="{{name}}" bindblur="getName"/>
+    </view>
+    <view class="info-item tel">
+        <input type="text" placeholder="手机号码" value="{{tel}}" bindblur="getTelephone" />
+    </view>
+    <view class="info-item province">
+        <picker bindchange="bindPickProChange" value="{{index}}" range="{{provinceArray}}">
+            <text>省份：{{provinceArray[pIndex]}}</text>
+        </picker>
+    </view>
+    <view class="info-item city">
+        <picker bindchange="bindPickCityChange" value="{{index}}" range="{{cityArray}}">
+            <text>城市：{{cityArray[cIndex]}}</text>
+        </picker>
+    </view>
+    <view class="info-item area">
+        <picker bindchange="bindPickAreaChange" value="{{index}}" range="{{areaArray}}">
+            <text>地区：{{areaArray[aIndex]}}</text>
+        </picker>
+    </view>
+    <view class="info-item detail-address">
+        <input type="text" placeholder="详细地址、如街道、楼牌号" value="{{detailAddress}}" bindblur="getDetailAddr"/>
+    </view>
+    <view class="save-btn" catchtap="saveInfo">保存</view>
+</view>
+</block>

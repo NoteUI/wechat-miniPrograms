@@ -1,0 +1,91 @@
+page{
+    background: #f8f8f8;
+    padding-bottom: 60px;
+}
+.address-info{
+    padding: 30rpx 80rpx 30rpx 30rpx;
+    background: #fff;
+    font-size: 14px;
+}
+.user-info{
+    justify-content:space-between;
+}
+.address{
+    margin-top: 20rpx;
+    position: relative;
+}
+
+.address::before{
+    position: absolute;
+    right: -20px;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid #999;
+    border-top: 1px solid #999;
+    transform: rotate(45deg);   
+}
+.order-list-wrap{
+    margin-top: 30rpx;
+}
+.order-list-tem{
+    position: relative;
+    z-index: 99;
+    justify-content:flex-start;
+    padding: 14rpx 30rpx 14rpx;
+    margin-bottom: 20rpx;
+    background: #fff;
+}
+.pic{
+    width: 75px;
+    height:75px;
+    background:#f8f8f8;
+    border:1px solid #f8f8f8;
+}
+ .info{
+    flex:1;
+    height: 100px;
+    margin-left: 30rpx;
+ }
+ .title{
+     margin-top: 12rpx;
+     font-size: 14px;
+     color: #333;
+ }
+.price{
+    margin-top:44rpx;  
+    justify-content: space-between; 
+    font-size: 12px;
+    color:#f02b2b;
+ }
+.marketPrice{
+    margin-right: 10rpx;
+    font-size:18px;
+}
+.num{
+    margin-right: 0rpx;
+    font-size: 18px;
+ }
+.order-bottom-menu{
+    position:fixed;
+    left:0;
+    bottom:0;
+    z-index: 999;
+    justify-content: space-between;
+    padding-left: 30rpx;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    border-top: 1px solid #ccc;
+}
+.total-price{
+    color:#f02b2b;
+}
+.toBuy-btn{
+    width: 100px;
+    line-height: 60px;
+    background: #f02b2b;
+    text-align: center;
+    color: #fff;
+}

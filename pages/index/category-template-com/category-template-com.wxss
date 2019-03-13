@@ -1,0 +1,24 @@
+@import "../swiper-banner-template/swiper-banner-template.wxss";
+@import "../search-template/search-template.wxss";
+@import "../listRowTypeOne-template/listRowTypeOne-template.wxss";
+@import "../productSilderLB-template/productSilderLB-template.wxss";
+.searchWrap{
+    padding: 26rpx;
+    background: #000;
+}
+.title-pic2{
+    height: 98rpx;
+}
+.listRowTypeTwo .typeCart{
+    background: #f02b2b;
+}
+.listRowTypeTwo .listRowTypeOne-marketPrice{
+    color: #f02b2b;
+}
+.listRowTypeOne .typeCart{
+    background: #faa03f;
+}
+.promo-smallBanner{
+    width: 100%;
+    height: 200rpx;
+}

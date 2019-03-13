@@ -1,0 +1,75 @@
+/* 推荐更多 */
+
+.rProduct-title{
+    width: 100%;
+    height: 40rpx;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.rProduct-title-txt{
+    position: relative;
+    display: inline;
+}
+.rProduct-title-txt::before,.rProduct-title-txt::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 15px;
+    height: 1rpx;
+    background:#333;
+    
+}
+.rProduct-title-txt::before{
+    left: -50rpx
+}
+.rProduct-title-txt::after{
+    right: -46rpx
+}
+.rProduct-list-cont{
+    margin-top: 30rpx;
+    background: #fff;
+}
+.rProduct-list-item{
+    float: left;
+    width: 50%;
+    padding: 20rpx;
+    box-sizing: border-box;
+    border-right: 2px solid #f4f4f4;
+    border-bottom: 2px solid #f4f4f4;
+}
+.rProduct-list-item:nth-child(2n){
+    border-right:none;
+}
+.rProduct-list-item .pic{
+    margin: 0 auto;
+    display: block;
+    width: 314rpx;
+    height: 314rpx;
+   
+}
+.rProduct-list-item .price{
+    margin: 30rpx 0 30rpx;
+}
+.rProduct-list-item  .marketPrice{
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+.rProduct-list-item .originPrice{
+    margin-left: 12rpx;
+    margin-right: 12rpx;
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+}
+.rProduct-list-item .discount{
+    font-size: 12px;
+    color: #999;
+}
+.rProduct-list-item .title{
+    font-size: 13px;
+    color: #666;
+}

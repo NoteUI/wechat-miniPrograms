@@ -1,0 +1,7 @@
+<view class="calculator">
+    <view class="calculator-add" catchtap="add">+</view>
+    <view class="calculator-input">
+        <input type="text" value="{{num}}" bindblur="onInputTxt"/>
+    </view>
+    <view class="calculator-reduce" catchtap="reduce">-</view>
+</view>

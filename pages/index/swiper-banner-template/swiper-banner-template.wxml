@@ -1,0 +1,16 @@
+<template name="swiper-banner-template">
+    <swiper class="bannerSwiper"
+    circular="{{setBSwiper.circular}}" 
+    indicator-dots="{{setBSwiper.indicatorDots}}" 
+    indicator-color="{{setBSwiper.indicatorColor}}" 
+    indicator-active-color="{{setBSwiper.indicatorActiveColor}}" 
+    interval="{{setBSwiper.interval}}" 
+    duration="{{setBSwiper.duration}}"
+    autoplay="{{setBSwiper.autoplay}}">
+        <block wx:for="{{bannerData}}" wx:key="this">
+            <swiper-item class="banner-item">
+                <image src="{{item.pic_url}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+</template>

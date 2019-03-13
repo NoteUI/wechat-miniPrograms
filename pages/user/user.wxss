@@ -1,0 +1,70 @@
+@import "../iconfont/iconfont.wxss";
+page{
+    background: #f8f8f8;
+}
+/* 头像 */
+.avatar-bg{
+    position: relative;
+    height: 360rpx;
+    background: #000;
+    overflow: hidden;
+}
+.avatar-wrap{
+    position: relative;
+    width: 140rpx;
+    height: 140rpx;
+    margin: 80rpx auto 0;
+}
+.avatar{
+    position: relative;
+    z-index: 999;
+    width: 140rpx;
+    height: 140rpx;
+    background: #fff;
+    border-radius: 50%;
+}
+.avatar-wrap::before,.avatar-wrap::after{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    content: '';
+    width: 180rpx;
+    height: 180rpx;
+    display: block;
+    background: rgba(255,255,255,.2);
+    border-radius: 50%;
+}
+.avatar-wrap::after{
+    width: 230rpx;
+    height: 230rpx;
+    background: rgba(255,255,255,.1);
+}
+.user-name{
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    margin-top: 64rpx;
+}
+/* 快速入口列表 */
+.list-wrap{
+    margin-top: 30rpx;
+    padding: 0 30rpx;
+    background: #fff;
+}
+.list-item{
+    padding: 15px 0 15px 28px;
+    border-bottom: 1px solid #eee;
+    color: #666;
+    font-size: 18px;
+}
+.list-item:last-child{
+    border-bottom:none;
+}
+
+.icon{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}

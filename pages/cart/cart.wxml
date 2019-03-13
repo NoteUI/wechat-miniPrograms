@@ -1,0 +1,77 @@
+<import src="rProduct-list-template/rProduct-list-template.wxml"/>
+<view class="cart-container" catchtap="hideMenu">
+<!-- 订单信息 -->
+<view class="order-list">
+    <block wx:if="{{orderData.length==0}}">
+        <view class="noProduct-tip">
+            <image class="cart-bigImg" src="//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-a8fe3f12e5.png"></image>
+            <text>去添加点什么吧</text>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="order-list-wrap">
+            <block wx:for="{{orderData}}" wx:key="this">
+                <view class="order-list-item-wrap">
+                    <view class="order-list-item flex-row {{item.move?'':'transition'}}"
+                    bindtouchstart="onMoveOrderItemStart"
+                    bindtouchmove="onMoveOrderItemMove"
+                    bindtouchend="onMoveOrderItemEnd"
+                    data-index="{{index}}"
+                    style="transform:translate3d({{item.left}}px,0,0)"
+                     >
+                        <image data-index="{{index}}"  data-id="{{item.id}}" src="{{isSelectedArr[index]?'../../images/cselected.png':'../../images/uncselected.png'}}" class="select-btn" catchtap="onSelectBtnTap"></image>
+                        <image class="pic" src="{{item.pic_url}}"></image>
+                        <view class="info">
+                            <view class="title ellipseTwoLine">{{item.title}}</view>
+                            <view class="price">
+                                <text class="marketPrice">￥{{item.marketPrice}}</text>
+                                <!-- <text class="originPrice">￥68</text> -->
+                            </view>
+                            <view class="calculator-wrap">
+                                <calculator class="calculator-cont" id="{{item.id}}" num="{{item.num}}" bind:operationNum="operationNum"></calculator>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="hideMenu flex-row">
+                            <view class="btn collect-btn flex-col" data-index="{{index}}" data-id="{{item.id}}" catchtap="onCollect">
+                                <view>移入</view>
+                                <view>收藏夹</view>
+                            </view>
+                            <view class="btn similar-btn flex-row">看相似</view>
+                            <view class="btn delete-btn flex-row" data-index="{{index}}" data-id="{{item.id}}" catchtap="delOrderItem">删除</view>
+                        </view>
+                </view>
+            </block>
+        </view>
+    </block>
+    <view class="order-bottom-menu  flex-row" wx:if="{{orderData.length>0}}">
+        <view class="allSelect" catchtap="selecteAll">
+            <image class="allSelect-btn" src="{{isAllSelected?'../../images/cselected.png':'../../images/uncselected.png'}}" />
+            <view class="allSelect-txt">全选</view>
+        </view>
+        <view class="totalPrice">
+            <view>
+                <text class="totalPrice-txt">总计：</text>
+                <text class="totalPrice-price">￥{{totalPrice}}</text>
+            </view>
+            <view class="totalPrice-num">
+                总共
+                <text class="totalPrice-bigNum">{{totalNum}}</text>
+                件商品
+            </view>
+        </view>
+        <view class="buy-btn {{isEnableToBuy?'active':''}}" catchtap="confirmOrder">去结算</view>
+    </view>
+</view>
+<!-- 推荐更多 -->
+<view class="recommendProduct-list">
+    <view class="rProduct-title">
+        <view class="rProduct-title-txt">你可能想买</view>
+    </view>
+    <view class="rProduct-list-cont clearfixed">
+        <block wx:for="{{recommendListData}}" wx:key="this">
+            <template is="rProduct-list-template" data="{{item:item}}"></template>
+        </block>
+    </view>
+</view>
+</view>

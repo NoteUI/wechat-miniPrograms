@@ -1,0 +1,61 @@
+<import src="../swiper-banner-template/swiper-banner-template.wxml"></import>
+<import src="../search-template/search-template.wxml"></import>
+<import src="../productSilderLB-template/productSilderLB-template.wxml"></import>
+<import src="../prListItemTypeOne-template/prListItemTypeOne-template.wxml"></import>
+<template name="category-template-index">
+    <view class="searchWrap">
+        <template is="search-template" data="{{inputs:cpg.inputs}}"></template>
+    </view>
+    <!-- 加载bannner模版 -->
+    <view class="bannerWrap">
+        <template is="swiper-banner-template" data="{{setBSwiper:cpg.bannerData.setBannerSwiper,bannerData:cpg.bannerData.data}}"></template>
+    </view>
+    <!-- 标语 -->
+    <view class="slogan-img-wrap">
+        <!-- <image src="{{cpg.sloganImg}}" class="slogan-img"></image> -->
+        <view class="slogan-hot-space-wrap flex-row">
+            <navigator url="" class="slogan-hot-space"></navigator>
+            <navigator url="" class="slogan-hot-space"></navigator>
+            <navigator url="" class="slogan-hot-space"></navigator>
+            <navigator url="" class="slogan-hot-space"></navigator>
+        </view>
+    </view>
+    <!-- 快速入口菜单 -->
+    <!-- <view class="quickentry-wrap flex-row">
+        <block wx:for="{{cpg.quickentryData}}" wx:key="this">
+            <view class="quickentry-item">
+                <navigator url="{{item.linkUrl}}">
+                    <image src="{{item.icon_url}}" class="quickentry-icon"></image>
+                    <text class="quickentry-txt">{{item.title}}</text>
+                </navigator>
+            </view>
+        </block>
+    </view> -->
+    <!-- 滚动新闻 -->
+    <view class="news-wrap flex-row">
+        <!-- <image src="{{cpg.news.pic_url}}" class="news-pic"></image> -->
+        <!-- 酒店头条：
+        <swiper class="news-list" circular="true" vertical="true" autoplay="true" interval="2000" duration="400">
+            <swiper-item wx:for="{{cpg.news.newsList}}" wx:key="this" class="news-list-item">
+                <navigator url="{{item.linkUrl}}">
+                    <text class="news-flag">{{item.flag}}</text>
+                    <view class="news-txt">{{item.title}}</view>
+                </navigator>
+            </swiper-item>
+        </swiper> -->
+    </view>
+    <image src="{{cpg.promo_banner}}" class="promo-banner"></image>
+    <!-- 抢购 -->
+
+  
+    <!-- 为你推荐 -->
+    <view class="recommendFY">
+        <view class='tc'>酒吧精选</view>
+        <!-- <image src="{{cpg.recommendFY.title_pic}}" class="title-pic"></image> -->
+        <view class="recommendFY-list clearfixed">
+            <block wx:for="{{cpg.recommendFY.lists}}" wx:key="this">
+                <template is="prListItemTypeOne" data="{{item:item}}"></template>
+            </block>
+        </view>
+    </view>
+</template>

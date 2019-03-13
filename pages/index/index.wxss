@@ -1,0 +1,70 @@
+
+@import "category-template-index/category-template-index.wxss";
+@import "category-template-com/category-template-com.wxss";
+/* 顶部导航栏开始 */
+.top-nav-wrap {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 44px;
+  background: #000;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.top-nav-item {
+  width: 138rpx;
+  height: 44px;
+  line-height: 44px;
+  display: inline-block;
+  font-size: 16px;
+  text-align: center;
+  color: #ccc;
+  vertical-align: middle;
+}
+.top-nav-item.active{
+   color: #6cb82c;
+}
+.activeTopNavItemBar{
+  width: 138rpx;
+  height: 2px;
+  background: #6cb82c;
+  position: absolute;
+  left:0px;
+  top: 42px;
+  opacity: 0;
+}
+/* 顶部导航栏结束 */
+/* 分类页面开始 */
+.categoryPageWrap{
+  width: 100%;
+  height: 1022rpx;
+  background: #fff;
+}
+.cPageItemCont,.categoryPage{
+  width: 100%;
+  height: 100%;
+  background: #f8f8f8;
+}
+.cPageItemCont{
+  height: auto;
+  opacity: 0;
+  transition: all 1s ease;
+}
+.cPageItemCont{
+  background: #fff;
+}
+.loadingImage{
+  width: 30px;
+  height: 30px;
+  margin: 200rpx auto;
+  display: block;
+}
+.loading-more-tip{
+  background: #f8f8f8;
+  padding: 20rpx 0;
+}
+.fadeIn{
+  opacity: 1;
+  transition: all 1s ease;
+}
+/* 分类页面结束 */

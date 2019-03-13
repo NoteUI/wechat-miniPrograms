@@ -1,0 +1,15 @@
+<view class="avatar-bg">
+    <view class="avatar-wrap">
+    <image src="http://qcloud.dpfile.com/pc/A1s5L_4Evw_eTOuLt8-CF3GvHbnZQwQIVm95nBycvoQAzJOr2hiUIm-sM3ibhmArl0cm-Lf9tDMlLZpO7rb3bg.jpg" class="avatar"></image>
+    </view>
+    <view class="user-name">tiger</view>
+</view>
+<view class="list-wrap">
+    <view class="list-item arrow" catchtap="toMyOrderList"><text class="icon iconfont icon-order"></text>我的订单</view>
+    <view class="list-item arrow" catchtap="toCoupons"><text class="icon iconfont icon-order"></text>优惠卡券</view>
+    <view class="list-item arrow" catchtap="toEditAdrr"><text class="icon iconfont icon-addr"></text>地址管理</view>
+    <view class="list-item arrow" catchtap="toMyCollection"><text class="icon iconfont icon-collect"></text>我的收藏</view>  
+</view>
+<view class="list-wrap">
+    <view class="list-item arrow" catchtap="toAboutUs"><text class="icon iconfont icon-about"></text>联系我们</view>
+</view>

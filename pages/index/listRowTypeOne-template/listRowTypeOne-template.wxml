@@ -1,0 +1,15 @@
+<template name="listRowTypeOne-template">
+    <view class="listRowTypeOne-item flex-row">
+            <image src="{{item.pic_url}}" class="listRowTypeOne-pic"></image>
+            <view class="listRowTypeOne-info">
+                <view class="listRowTypeOne-title ellipseTwoLine">{{item.title}}</view>
+                <view class="listRowTypeOne-price">
+                    <text class="listRowTypeOne-marketPrice">￥{{item.marketPrice}}</text>
+                    <block wx:if="{{item.originPrice}}">
+                         <text class="listRowTypeOne-originPrice">￥{{item.originPrice}}</text>
+                    </block>
+                </view>
+                <view class="typeCart"></view>
+            </view>
+        </view>
+</template>
